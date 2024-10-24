@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import Footer from "./components/common/footer"
 import Contact from "./components/landingpage/contact"
 import Faq from "./components/landingpage/faq"
 import Hero from "./components/landingpage/hero"

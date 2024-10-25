@@ -18,8 +18,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import { Input } from "../ui/input";
-import { Textarea } from "../ui/textarea";
+import ContactUs from "../common/contact";
 
 export default function Contact() {
     return (
@@ -48,14 +47,7 @@ export default function Contact() {
                                                 Please fill out the form below to get in touch with us.
                                             </SheetDescription>
                                         </SheetHeader>
-                                        <form className="flex flex-col gap-4 mt-5">
-                                            <Input name="fullname" placeholder="Your FullName" />
-                                            <Input name="email" placeholder="Your Email" />
-                                            <Textarea placeholder="Type your message here." name="message" />
-                                            <Button type="submit" className="bg-[#036a51] hover:bg-[#036a51]/90 font-semibold">
-                                                Send Message
-                                            </Button>
-                                        </form>
+                                       <ContactUs />
                                     </SheetContent>
                                 </Sheet>
                             </div>

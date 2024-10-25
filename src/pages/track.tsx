@@ -3,12 +3,14 @@
 import ParcelMap from "@/components/parcelMap";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { API } from "@/utils/request";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Track() {
   const [toggleMapVisibility, setMapVisibility] = useState(false);
   const [loader, setLoader] = useState(false);
+  const [refNo, setRefNo] = useState("");
   const [tracking_num, setTracking_num] = useState("");
   const [trackData, setTrackingData] = useState<[Array<any>, any]>([] as any);
   const [coordinates, setCoordinates] = useState({
@@ -45,7 +47,7 @@ export default function Track() {
 
     setLoader(true)
     try {
-      const response = await axios.post("https://server.loomiscourierintl.com/admin/api/ajax.php?v1=get_parcel_heistory", formData);
+      const response = await axios.post(`${API}/admin/api/ajax.php?v1=get_parcel_heistory`, formData);
       console.log(response.data, response.data[0][response.data[0].length-1].current_location)
       if (response.data) {
         const data = response.data;
@@ -81,8 +83,11 @@ export default function Track() {
     }
   }
 
+  useEffect(() => {
+    const ref:any = (new URLSearchParams(location.search)).get('ref_no');
+    setRefNo(ref)
+  }, [location.search])
   // Rest of your JSX remains the same until the map section
-
   return (
     <div className="h-[850px] overflow-hidden flex pt-20">
       {/* Your existing tracking info component */}
@@ -90,7 +95,7 @@ export default function Track() {
         <button className="mb-3 bg-slate-300 rounded-full  px-2 uppercase text-sm">Show map</button>
         <div className="">
           <form action="" onSubmit={fetchTrack} method="get" className="flex flex-wrap gap-2 border-b pb-3">
-            <Input placeholder="Enter your reciept number" name="tracking_num" onChange={(e) => setTracking_num(e.target.value)} />
+            <Input defaultValue={refNo} placeholder="Enter your reciept number" name="tracking_num" onChange={(e) => setTracking_num(e.target.value)} />
             <Button className="flex items-center bg-emerald-600 hover:bg-emerald-600/90 disabled:opacity-60" disabled={loader}>
               <span>Track</span>
               <span>

@@ -93,6 +93,26 @@ html[data-scroll-orientation="horizontal"] {
   }
 }
 
-.is-inview {
-  opacity: 1;
+.animate-drive {
+  animation: drive 2s linear 1s infinite;
+}
+@keyframes drive {
+  0% {
+    animation-duration: 3s;
+    transform: translateX(0px);
+  }
+  20% {
+    transform: translateX(100px);
+  }
+  40% {
+    transform: translateX(200px);
+    animation-duration: 4s;
+  }
+  80% {
+    transform: translateX(300px);
+  }
+
+  100% {
+    transform: translateX(400px );
+  }
 }

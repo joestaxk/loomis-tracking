@@ -14,7 +14,7 @@ import {
 export default function Header() {
     return (
         <>
-            <div className="fixed z-20 w-full bg-[#fff] flex justify-between items-baseline border-b lg:px-10 px-5 font-raleway">
+            <div className="fixed z-[15] w-full bg-[#fff] flex justify-between items-baseline border-b lg:px-10 px-5  ">
                 <a href="/"><img src="./loomis_logo.svg" className="lg:w-60 w-48 translate-y-2" /></a>
 
                 <div className="lg:space-x-10 space-x-4 lg:text-xl text-md md:flex items-center hidden">
@@ -58,10 +58,10 @@ export default function Header() {
                             <SheetContent>
                                 <SheetHeader>
                                     <SheetDescription>
-                                        <a href="" className="block leading-[60px] text-xl xl:px-6 px-3 border-b-2 border-transparent hover:text-emerald-700 hover:border-emerald-900">About</a>
-                                        <a href="" className="block leading-[60px] text-xl xl:px-6 px-3 border-b-2 border-transparent hover:text-emerald-700 hover:border-emerald-900">Services</a>
-                                        <a href="" className="block leading-[60px] text-xl xl:px-6 px-3 border-b-2 border-transparent hover:text-emerald-700 hover:border-emerald-900">Track</a>
-                                        <a href="" className="block leading-[60px] text-xl xl:px-6 px-3 border-b-2 border-transparent hover:text-emerald-700 hover:border-emerald-900">FAQ</a>
+                                        <a href="/#about" className="block leading-[60px] text-xl xl:px-6 px-3 border-b-2 border-transparent hover:text-emerald-700 hover:border-emerald-900">About</a>
+                                        <a href="/#service" className="block leading-[60px] text-xl xl:px-6 px-3 border-b-2 border-transparent hover:text-emerald-700 hover:border-emerald-900">Services</a>
+                                        <a href="/track" className="block leading-[60px] text-xl xl:px-6 px-3 border-b-2 border-transparent hover:text-emerald-700 hover:border-emerald-900">Track</a>
+                                        <a href="/#faq"   className="block leading-[60px] text-xl xl:px-6 px-3 border-b-2 border-transparent hover:text-emerald-700 hover:border-emerald-900">FAQ</a>
 
                                         <Sheet>
                                             <SheetTrigger className="w-full">

@@ -11,7 +11,7 @@ const LayoutDefault: React.FC<LayoutDefaultProps> = () => {
     return (
         <>
             <Header />
-            <div className="pt-20">
+            <div className="">
                 <Outlet />
             </div>
             <Footer />

@@ -79,7 +79,7 @@ export default function WhyUsSection() {
                                         <Card className="border-0">
                                             <CardContent className="p-0 border-0 h-[200px]">
                                                 <div className="h-full">
-                                                    <img src={`/whyus${index + 1}.jpg`} alt="why us" className="w-full h-full object-cover rounded-md" />
+                                                    <img src={`/whyus${index + 1}.jpeg`} alt="why us" className="w-full h-full object-cover rounded-md" />
                                                 </div>
                                             </CardContent>
                                             <CardDescription className="py-2 px-2 space-y-2">
@@ -97,7 +97,7 @@ export default function WhyUsSection() {
 
                 <div className="mt-16">
                     <div className="h-[450px] w-full rounded-lg">
-                        <img src="./truck.jpg" className="h-full object-cover object-center w-full rounded-lg" alt="" />
+                        <img src="./truck.jpeg" className="h-full object-cover object-center w-full rounded-lg" alt="" />
                     </div>
                     <div className="lg:flex justify-around items-center py-3 hidden">
                         {

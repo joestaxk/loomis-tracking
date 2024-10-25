@@ -39,7 +39,7 @@ export default function Contact() {
                                 </div>
                                 <Sheet>
                                     <SheetTrigger className="">
-                                        <Button className="rounded-full py-6 px-6 hover:bg-black/90 bg-black">Contact us</Button>
+                                        <Button className="xs:w-auto w-full rounded-full py-6 px-6 hover:bg-black/90 bg-black">Contact us</Button>
                                     </SheetTrigger>
                                     <SheetContent>
                                         <SheetHeader>
@@ -63,7 +63,7 @@ export default function Contact() {
                     </div>
 
                     <div className="lg:col-span-2 sm:col-span-1 sm:row-auto row-span-3 w-full h-full sm:order-2 order-1">
-                        <img src="./delivery.jpg" className="h-full object-cover w-full" alt="delivery" />
+                        <img src="./delivery.jpeg" className="h-full object-cover w-full" alt="delivery" />
                     </div>
                 </div>
 
@@ -102,7 +102,7 @@ export default function Contact() {
                                         <Card className="border-0">
                                             <CardContent className="p-0 border-0 h-[200px]">
                                                 <div className="h-full">
-                                                    <img src={`/delivery${index + 1}.jpg`} alt="why us" className="w-full h-full object-cover rounded-md" />
+                                                    <img src={`/delivery${index + 1}.jpeg`} alt="why us" className="w-full h-full object-cover rounded-md" />
                                                 </div>
                                             </CardContent>
                                         </Card>

@@ -45,7 +45,7 @@ export default function Track() {
 
     setLoader(true)
     try {
-      const response = await axios.post("http://localhost/delivery-backend/admin/api/ajax.php?v1=get_parcel_heistory", formData);
+      const response = await axios.post("https://server.loomiscourierintl.com/admin/api/ajax.php?v1=get_parcel_heistory", formData);
       console.log(response.data, response.data[0][response.data[0].length-1].current_location)
       if (response.data) {
         const data = response.data;

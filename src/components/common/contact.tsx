@@ -26,10 +26,11 @@ export default function ContactUs() {
             }
         })
             .then((resp: any) => {
-                if(resp) {
-                    console.log(resp);
+                if(resp.data.status === "success") {
                     sl(false)
-                alert("Submitted Successfully");
+                    return alert("Submitted Successfully");
+                }else {
+                    alert("Something is wrong, try again");
                 }
             })
             .catch((err) => {

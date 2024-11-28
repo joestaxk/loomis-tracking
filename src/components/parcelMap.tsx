@@ -10,7 +10,7 @@ L.Icon.Default.mergeOptions({
 
 const ParcelMap = ({ currentLocation, destination }: any) => {
     const positions = [currentLocation, destination];
-    
+    console.log(positions)
     return (
         <MapContainer 
             center={currentLocation} 

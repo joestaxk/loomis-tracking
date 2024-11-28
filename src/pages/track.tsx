@@ -18,6 +18,8 @@ export default function Track() {
     destination: [51.51, -0.1]
   });
 
+  const [sayNoCordinate, setIfNoCordinates] = useState(false)
+
   const getCoordinates = async (address: string) => {
     try {
       const response = await axios.get(`https://nominatim.openstreetmap.org/search`, {
@@ -48,33 +50,37 @@ export default function Track() {
     setLoader(true)
     try {
       const response = await axios.post(`${API}/admin/api/ajax.php?v1=get_parcel_heistory`, formData);
-      console.log(response.data, response.data[0][response.data[0].length-1].current_location)
       if (response.data) {
+        setLoader(false)
         const data = response.data;
 
         const type = ['deliver', 'pickup']
 
         let currentCoords: any, destCoords: any;
-
-        if (type[data[1].type] == "deliver") {
+        if (type[parseInt(data[1].type)-1] == "deliver") {
           // from current to recipient house address
           currentCoords = await getCoordinates(response.data[0][response.data[0].length-1].current_location);
           destCoords = await getCoordinates(response.data[1].recipient_address);
-        } else  if (type[data[1].type] == "pickup") {
+        } else  if (type[parseInt(data[1].type)-1] == "pickup") {
           // from current to branch
+
           currentCoords = await getCoordinates(response.data[0][response.data[0].length-1].current_location);
           destCoords = await getCoordinates(response.data[1].to_branch.city);
         }
 
+        if(!currentCoords || !destCoords) {
+          setIfNoCordinates(true);
+        }
+
         if (currentCoords && destCoords) {
+          
           setCoordinates({
             current: currentCoords,
             destination: destCoords
           });
           setMapVisibility(true);
-          setTrackingData(response.data)
-          setLoader(false)
         }
+          setTrackingData(response.data)
       }
     } catch (error) {
       // alert("Something went wrong. check tracking ID or network connection")
@@ -194,23 +200,29 @@ export default function Track() {
               </div>}
 
               {
-                tracking_num ? trackData[0].reverse().map(({ message, date_created }: any) => (
+                tracking_num ? trackData[0].reverse().map(({ message, date_created }: any) => {
+                  if(message) {
+                    return (
                   <div key={date_created} className="flex justify-between items-center gap-4">
                     <div className="font-bold font-inter text-gray-600 text-xs">{(new Date(date_created)).toLocaleString()}</div>
                     <p className="text-right text-sm">{message}</p>
                   </div>
-                )) : (
-                  <div className="py-4 text-gray-600">
-                    <p>Nothing is here .... search by tracking ID</p>
+                    )
+                  }
+                })
+                : (
+             
+                    <div className="py-4 text-gray-600">
+                    <p>{sayNoCordinate ? "There's no cordinate yet!" : "No movement yet!"}</p>
                   </div>
                 )
               }
             </div>
           </div>
         </>) : (
-          <div className="py-4 text-gray-600">
-            <p>Nothing is here .... search by tracking ID</p>
-          </div>
+               <div className="py-4 text-gray-600">
+               <p>Nothing is here .... search by tracking ID</p>
+             </div>
         )}
       </div>
 

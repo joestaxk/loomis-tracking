@@ -15,7 +15,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/track",   // This matches the root path
-        element: <Track />, // Render App as a child of LayoutDefault
+        // element: <Track />, // Render App as a child of LayoutDefault
+        element: <App />, // Render App as a child of LayoutDefault
       },
       {
         path: "/privacy-policy",   // This matches the root path

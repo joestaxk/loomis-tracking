@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import LayoutDefault from "./layout/default";
 import App from "./App";
-import Track from "./pages/track";
+// import Track from "./pages/track";
 import PrivacyPolicy from "./pages/privacy";
 
 const router = createBrowserRouter([
